@@ -1,28 +1,28 @@
 package com.wellsfargo.counselor.controller;
 
-import com.wellsfargo.counselor.entity.Portfolio;
-import com.wellsfargo.counselor.repository.PortfolioRepository;
+import com.wellsfargo.counselor.entity.Client;
+import com.wellsfargo.counselor.repository.ClientRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/portfolio")
-public class PortfolioController {
+@RequestMapping("/client")
+public class ClientController {
 
-    private final PortfolioRepository portfolioRepository;
+    private final ClientRepository clientRepository;
 
-    public PortfolioController(PortfolioRepository portfolioRepository) {
-        this.portfolioRepository = portfolioRepository;
+    public ClientController(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
     }
 
     @GetMapping
-    public List<Portfolio> getAllPortfolios() {
-        return portfolioRepository.findAll();
+    public List<Client> getAllClients() {
+        return clientRepository.findAll();
     }
 
     @PostMapping
-    public Portfolio createPortfolio(@RequestBody Portfolio portfolio) {
-        return portfolioRepository.save(portfolio);
+    public Client createClient(@RequestBody Client client) {
+        return clientRepository.save(client);
     }
 }
